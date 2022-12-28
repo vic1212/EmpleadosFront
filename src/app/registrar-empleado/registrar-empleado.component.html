@@ -1,0 +1,96 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center text-success">Registro de empleados</h3>
+
+    <form (ngSubmit)="onSubmit()" #empleadoForm="ngForm">
+        <div class="form-group">
+            <label for="">Nombre(s)</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="empleado.nombre" name="nombre" required
+                minlength="4" maxlength="100" #nombre="ngModel" placeholder="Digite el Nombre" />
+            <div class="alert alert-danger" role="alert" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors.required">Digite el Nombre</div>
+                <div *ngIf="nombre.errors.minlength">
+                    El nombre tiene que tener 4 caracteres como minimo
+                </div>
+                <div *ngIf="nombre.errors.maxlength">
+                    El nombre no tiene que ser largo
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" [(ngModel)]="empleado.apellido" name="apellido"
+                required minlength="4" maxlength="100" #apellido="ngModel" placeholder="Digite el Apellido" />
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf="apellido.errors.required">Digite el Apellido</div> 
+                <div *ngIf="apellido.errors.minlength">
+                    El apellido tiene que tener 4 caracteres como minimo
+                </div>
+                <div *ngIf="apellido.errors.maxlength">
+                    El apellido no tiene que ser largo
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="empleado.email" name="email" required
+                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                #email="ngModel" placeholder="Digite el Email" />
+
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">Digite el Email</div>
+                <div *ngIf="email.errors.pattern">
+                    El email tiene que tener el siguiente formato: ejemplo100@gmail.com
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Telefono</label>
+            <input type="text" class="form-control" id="telefono" [(ngModel)]="empleado.telefono" name="telefono"
+                required minlength="10" maxlength="20" #telefono="ngModel" placeholder="Digite el Telefono" />
+            <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                <div *ngIf="telefono.errors.required">Digite el Telefono</div>
+                <div *ngIf="telefono.errors.minlength">
+                    El telefono tiene que tener 10 caracteres como minimo
+                </div>
+                <div *ngIf="telefono.errors.maxlength">
+                    El telefono no tiene que tener muchos digitos
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Puesto</label>
+            <input type="text" class="form-control" id="puesto" [(ngModel)]="empleado.puesto" name="puesto" required
+                minlength="4" maxlength="50" #puesto="ngModel" placeholder="Digite el Puesto" />
+            <div class="alert alert-danger" *ngIf="puesto.invalid && (puesto.dirty || puesto.touched)">
+                <div *ngIf="puesto.errors.required">Digite el Puesto</div>
+                <div *ngIf="puesto.errors.minlength">
+                    El puesto tiene que tener 4 caracteres como minimo
+                </div>
+                <div *ngIf="puesto.errors.maxlength">
+                    El puesto no tiene que ser muy largo
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Empresa</label>
+            <input type="text" class="form-control" id="empresa" [(ngModel)]="empleado.empresa" name="empresa"
+                required minlength="4" maxlength="50" #empresa="ngModel" placeholder="Digite la Empresa" />
+            <div class="alert alert-danger" *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)">
+                <div *ngIf="empresa.errors.required">Digite la Empresa</div>
+                <div *ngIf="empresa.errors.minlength">
+                    La empresa tiene que tener 4 caracteres como minimo
+                </div>
+                <div *ngIf="empresa.errors.maxlength">
+                    La empresa no tiene que ser muy largo
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-dark" [disabled]="!empleadoForm.valid">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<h3>Detalles del empleado</h3>
+<div class="card" style="width: 18rem">
+    
+    <div class="card-body bg-dark text-white">
+        <h5 class="card-title"><b>ID: </b>{{ empleado.id }}</h5>
+        <p class="card-text">
+            <b>Nombre(s): </b>{{ empleado.nombre }} <br>
+            <b>Apellidos: </b>{{ empleado.apellido }} <br>
+            <b>Email: </b>{{ empleado.email }}
+
+        </p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Telefono: </b>{{ empleado.telefono }}</li>
+        <li class="list-group-item"><b>Puesto: </b>{{ empleado.puesto }}</li>
+        <li class="list-group-item"><b>Empresa: </b>{{ empleado.empresa }}</li>
+    </ul>
+</div>
+
+
+
